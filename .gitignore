@@ -1,0 +1,20 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# XAMPP / local runtime
+*.log
+
+# Uploaded images and local assets
+assets/images/*
+!assets/images/.gitkeep
+
+# Composer / PHP tools
+/vendor/
+
+# Environment files
+.env
+.env.*

@@ -1,0 +1,54 @@
+/* Student Dashboard – vibrant, energetic theme */
+body{
+  background: linear-gradient(135deg, #0e1630 0%, #0a1024 40%, #0b0f1f 100%),
+              radial-gradient(800px 600px at 90% 10%, rgba(80,180,255,.18) 0%, rgba(80,180,255,0) 60%),
+              radial-gradient(900px 700px at 10% 90%, rgba(255,120,160,.16) 0%, rgba(255,120,160,0) 55%);
+  background-blend-mode: overlay, normal;
+  min-height: 100vh;
+}
+
+.navbar{
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 24px rgba(0,0,0,.25);
+}
+.navbar .navbar-brand{ font-weight:800; letter-spacing:.4px; }
+
+/* Cards */
+.card{
+  border: none; border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+  color: #eef3ff;
+  box-shadow: 0 16px 40px rgba(0,0,0,.3);
+}
+.card .card-header{
+  background: linear-gradient(90deg, rgba(99,102,241,.3), rgba(236,72,153,.25));
+  border: none; color:#fff; font-weight:700;
+}
+
+/* Buttons */
+.btn{ border-radius: 12px; transition: all .2s ease; }
+.btn:hover{
+  transform: translateY(-1px) scale(1.01);
+  box-shadow: 0 10px 24px rgba(59,130,246,.35);
+}
+
+/* Tables */
+.table{ color:#f1f5ff; }
+.table thead th{ color:#cfe0ff; border-color: rgba(255,255,255,.1); }
+.table td, .table th{ border-color: rgba(255,255,255,.08) !important; }
+
+/* Status badges with shimmer */
+.status-badge{
+  position: relative; overflow:hidden;
+}
+.status-badge::before{
+  content: ""; position:absolute; top:0; left:-120%; width:120%; height:100%;
+  background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,.45) 30%, transparent 60%);
+  animation: shimmer 2.6s ease-in-out infinite;
+}
+@keyframes shimmer{ 0%{ left:-120%; } 100%{ left:120%; } }
+
+.table-small{ font-size:.95rem; }
+.nav-gap > *{ margin-left:.5rem; }
+
+

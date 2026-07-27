@@ -1,0 +1,62 @@
+/* Staff Dashboard – premium, calm theme */
+body{
+  background: radial-gradient(1200px 800px at 15% 10%, #e8f0ff 0%, rgba(232,240,255,0) 50%),
+              radial-gradient(900px 700px at 85% 90%, #ffe9f5 0%, rgba(255,233,245,0) 55%),
+              linear-gradient(180deg,#0f1020 0%, #0a0b1a 100%);
+  min-height: 100vh;
+}
+
+.navbar{
+  box-shadow: 0 6px 24px rgba(0,0,0,.15);
+}
+.navbar .navbar-brand{
+  font-weight: 700; letter-spacing:.3px;
+}
+
+/* Cards – glass look */
+.card{
+  border: none; border-radius: 16px;
+  background: rgba(255,255,255,.06);
+  color: #e9ecff;
+  backdrop-filter: blur(8px) saturate(140%);
+  box-shadow: 0 10px 30px rgba(0,0,0,.25), inset 0 0 0 1px rgba(255,255,255,.08);
+}
+.card .card-header{
+  background: linear-gradient(90deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+  border: none; font-weight: 600; color: #d7dbff;
+}
+.card .card-body{ color:#f2f4ff; }
+
+/* KPI tiles */
+.card.text-center .text-muted{ color:#c7cbff !important; opacity:.9; }
+.card.text-center .h4{ font-weight:800; }
+
+/* List items */
+.list-group-item{
+  background: transparent; color:#eef1ff;
+  border-color: rgba(255,255,255,.12);
+}
+
+/* Buttons */
+.btn{ border-radius: 12px; }
+.btn:hover{ transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,0,0,.25); }
+
+/* Tables */
+.table{ color:#edf0ff; }
+.table thead th{ color:#cdd3ff; font-weight:600; border-color:rgba(255,255,255,.08); }
+.table td, .table th{ border-color: rgba(255,255,255,.08) !important; }
+
+/* Status badges with subtle pulse */
+.status-badge{ position: relative; }
+.status-badge::after{
+  content:""; position:absolute; inset:-3px; border-radius:999px; z-index:-1;
+  background: currentColor; opacity:.25;
+  animation: pulse 2.2s ease-in-out infinite;
+}
+@keyframes pulse{ 0%,100%{ transform: scale(1); opacity:.25;} 50%{ transform: scale(1.08); opacity:.15;} }
+
+/* Small layout niceties */
+.table-small{ font-size:.925rem; }
+.nav-gap > *{ margin-left:.5rem; }
+
+

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart Lost & Found – Kongu Engineering College</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-campus position-relative text-white">
+  <div class="overlay"></div>
+  
+  <!-- Floating particles background -->
+  <div class="particles-container">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <!-- Cursor glow effect -->
+  <div class="cursor-glow"></div>
+
+  <div class="container position-relative" style="z-index:2;min-height:100vh;display:flex;align-items:center;justify-content:center;">
+    <div class="center-card p-4 text-center fade-in">
+      <!-- Animated icon badges -->
+      <div class="icon-badge-wrapper mb-3">
+        <div class="icon-badge icon-badge-1">🔍</div>
+        <div class="icon-badge icon-badge-2">✨</div>
+        <div class="icon-badge icon-badge-3">🎯</div>
+      </div>
+      
+      <h1 class="h3 mb-1 title-glow animated-title">
+        <span class="title-word">Smart</span> 
+        <span class="title-word">Lost</span> 
+        <span class="title-word">&amp;</span> 
+        <span class="title-word">Found</span>
+      </h1>
+      <div class="accent-line"></div>
+      <p class="mb-4 subtitle-soft animated-subtitle">Kongu Engineering College</p>
+      
+      <div class="d-flex justify-content-center gap-3 mb-4 button-wrapper flex-wrap">
+        <a class="btn btn-primary btn-lg role-btn student-btn" href="login_student.php">
+          <span class="btn-content">
+            <span class="btn-icon">🎓</span>
+            <span class="btn-text">Student</span>
+            <span class="btn-shine"></span>
+          </span>
+        </a>
+        <a class="btn btn-success btn-lg role-btn staff-btn" href="login_staff.php">
+          <span class="btn-content">
+            <span class="btn-icon">👨‍🏫</span>
+            <span class="btn-text">Staff</span>
+            <span class="btn-shine"></span>
+          </span>
+        </a>
+        <a class="btn btn-danger btn-lg role-btn" href="login_admin.php">
+          <span class="btn-content">
+            <span class="btn-icon">🏛️</span>
+            <span class="btn-text">Admin</span>
+            <span class="btn-shine"></span>
+          </span>
+        </a>
+      </div>
+      
+      <p class="mt-4 mb-0 subtitle-soft small description-text">Report lost or found items. The system auto-matches and notifies both users.</p>
+      
+      <!-- Decorative elements -->
+      <div class="decorative-circles">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/index-effects.js"></script>
+</body>
+</html>
+
