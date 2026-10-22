@@ -1,0 +1,56 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: lostfound_web
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      APP_ENV: production
+      APP_DEBUG: "false"
+      APP_URL: http://localhost:8080
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: smart_lostfound
+      DB_USER: lostfound
+      DB_PASS: lostfound_secure_pass
+    volumes:
+      - ./assets/uploads:/var/www/html/assets/uploads
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - lostfound_net
+
+  db:
+    image: mysql:8.0
+    container_name: lostfound_db
+    restart: unless-stopped
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: smart_lostfound
+      MYSQL_USER: lostfound
+      MYSQL_PASSWORD: lostfound_secure_pass
+      MYSQL_ROOT_PASSWORD: root_master_secure_pass
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./database/smart_lostfound.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot_master_secure_pass"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 15s
+    networks:
+      - lostfound_net
+
+volumes:
+  db_data:
+    driver: local
+
+networks:
+  lostfound_net:
+    driver: bridge

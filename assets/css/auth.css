@@ -146,3 +146,36 @@ body {
   color: rgba(255, 255, 255, 0.85);
 }
 
+/* Touch & Mobile Optimizations */
+@media (max-width: 576px) {
+  body {
+    min-height: 100dvh;
+    padding: 1rem;
+    align-items: center;
+  }
+
+  .center-card {
+    padding: 1.5rem !important;
+    border-radius: 18px;
+    width: 100%;
+  }
+
+  .center-card .form-control,
+  .center-card .form-select {
+    font-size: 16px !important;
+    min-height: 44px;
+  }
+
+  .center-card .btn {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.25rem;
+  }
+
+  .center-card .d-flex.justify-content-between {
+    gap: 0.75rem;
+  }
+}
+

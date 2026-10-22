@@ -1,0 +1,21 @@
+{
+  "name": "kec/smart-lost-and-found",
+  "description": "Smart Lost and Found Web Application for Kongu Engineering College",
+  "type": "project",
+  "license": "MIT",
+  "require": {
+    "php": ">=8.0",
+    "ext-mysqli": "*",
+    "ext-fileinfo": "*",
+    "ext-json": "*",
+    "ext-mbstring": "*"
+  },
+  "suggest": {
+    "ext-gd": "Required for image thumbnail optimizations"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true
+  }
+}

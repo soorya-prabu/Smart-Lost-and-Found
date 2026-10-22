@@ -1,0 +1,53 @@
+# =====================================================================
+# Smart Lost & Found - Apache Web Server Security & Runtime Configuration
+# =====================================================================
+
+# 1. Prevent Directory Indexing / Listing
+Options -Indexes +FollowSymLinks
+
+# 2. Keep legacy root URLs working after controllers are grouped by area
+RewriteEngine On
+RewriteRule ^(login_admin|login_staff|login_student|signup|logout)\.php$ auth/$1.php [L,QSA]
+RewriteRule ^(student_dashboard)\.php$ student/dashboard.php [L,QSA]
+RewriteRule ^(staff_dashboard)\.php$ staff/dashboard.php [L,QSA]
+RewriteRule ^(feedback|item_details|match_notification|report_found|report_lost|search_items)\.php$ items/$1.php [L,QSA]
+RewriteRule ^admin_(activity|dashboard|items|matches|reports|users)\.php$ admin/$1.php [L,QSA]
+
+# 3. Set Default Character Set
+AddDefaultCharset UTF-8
+
+# 4. Block Direct Access to Sensitive Files (.env, database dumps, git, logs, docker)
+<FilesMatch "(^\.env|\.sql$|\.log$|Dockerfile|docker-compose.*|\.git.*)">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# 5. Security Headers
+<IfModule mod_headers.c>
+    # Prevent MIME type sniffing
+    Header set X-Content-Type-Options "nosniff"
+
+    # Prevent clickjacking attacks
+    Header set X-Frame-Options "SAMEORIGIN"
+
+    # Legacy XSS Filter protection
+    Header set X-XSS-Protection "1; mode=block"
+
+    # Restrict referrer information sent with requests
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Permissions Policy
+    Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# 6. PHP Upload & Runtime Constraints (mod_php)
+<IfModule mod_php.c>
+    php_value upload_max_filesize 10M
+    php_value post_max_size 12M
+    php_value max_execution_time 60
+</IfModule>

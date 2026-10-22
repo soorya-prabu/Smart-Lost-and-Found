@@ -8,9 +8,10 @@ Thumbs.db
 # XAMPP / local runtime
 *.log
 
-# Uploaded images and local assets
-assets/images/*
-!assets/images/.gitkeep
+# Uploaded images and local runtime assets
+assets/uploads/*
+!assets/uploads/.gitkeep
+assets/images/img_*
 
 # Composer / PHP tools
 /vendor/
@@ -18,3 +19,4 @@ assets/images/*
 # Environment files
 .env
 .env.*
+!.env.example
